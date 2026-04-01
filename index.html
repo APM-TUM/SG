@@ -53,7 +53,6 @@ img{max-width:100%;height:auto}
   align-items:center;
   white-space:nowrap;
   width:max-content;
-  animation:ticker 32s linear infinite;
   will-change:transform;
 }
 @keyframes ticker{
@@ -129,7 +128,7 @@ nav{
 
 #hero{
   position:relative;display:flex;align-items:center;justify-content:center;
-  overflow:hidden;min-height:100vh;min-height:100svh;
+  overflow:hidden;min-height:100svh;
   background:radial-gradient(ellipse 140% 90% at 55% 35%,rgba(45,30,18,1) 0%,rgba(22,17,12,1) 45%,rgba(12,10,8,1) 100%);
 }
 #hero::after{
@@ -178,7 +177,7 @@ nav{
   background:rgba(12,10,8,.88);border:1px solid rgba(200,92,42,.22);border-radius:20px;
   padding:22px 24px 20px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   box-shadow:0 20px 60px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.06);
-  will-change:transform;animation:dashFloat 6s ease-in-out infinite;position:relative;overflow:hidden;
+  animation:dashFloat 6s ease-in-out infinite;position:relative;overflow:hidden;
 }
 .dash-main::before{content:'';position:absolute;top:0;left:24px;right:24px;height:1px;background:linear-gradient(90deg,transparent,rgba(200,92,42,.55),transparent)}
 .dash-main-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
@@ -197,7 +196,7 @@ nav{
   background:rgba(12,10,8,.82);border:1px solid rgba(255,255,255,.07);border-radius:14px;
   padding:14px 14px 12px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   box-shadow:0 8px 24px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.04);
-  display:flex;flex-direction:column;gap:8px;will-change:transform;transition:border-color .4s ease;
+  display:flex;flex-direction:column;gap:8px;transition:border-color .4s ease;
 }
 .dash-metric:nth-child(1){animation:dashFloat 5.5s 0.2s ease-in-out infinite}
 .dash-metric:nth-child(2){animation:dashFloat 6.2s 0.9s ease-in-out infinite}
@@ -210,7 +209,7 @@ nav{
   background:rgba(12,10,8,.75);border:1px solid rgba(255,255,255,.06);border-radius:14px;
   padding:13px 16px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   display:flex;align-items:center;gap:12px;box-shadow:0 6px 20px rgba(0,0,0,.35);
-  will-change:transform;animation:dashFloat 7s 0.6s ease-in-out infinite;
+  animation:dashFloat 7s 0.6s ease-in-out infinite;
 }
 .dt-avatar{
   width:34px;height:34px;border-radius:50%;flex-shrink:0;
@@ -236,7 +235,7 @@ nav{
 .hero-inner{
   position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;
   display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:0;
-  padding:160px 64px 120px;min-height:100vh;min-height:100svh;
+  padding:160px 64px 120px;min-height:100svh;
 }
 .hero-content{animation:fadeUp .9s .1s both;display:flex;flex-direction:column;align-items:flex-start;text-align:left;width:100%;max-width:560px}
 .hero-visual-col{position:relative;display:flex;align-items:center;justify-content:center;height:100%;min-height:420px}
@@ -274,13 +273,11 @@ nav{
   margin-top:28px;margin-bottom:40px;display:flex;align-items:center;gap:10px;
 }
 .hero-tagline::before{content:'';display:inline-block;width:20px;height:1px;background:rgba(200,92,42,.45);flex-shrink:0}
-.hero-tagline::after{display:none}
 .hero-tagline .hoy{color:#FAF7F4;letter-spacing:.22em;font-size:1.25em;font-weight:800;text-shadow:0 0 18px rgba(250,247,244,.35)}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:0;align-items:center;justify-content:flex-start}
 
 /* RESPONSIVE HERO */
 @media(max-width:900px){
-  #hero{min-height:auto}
   .hero-inner{grid-template-columns:1fr;padding:130px 32px 56px;gap:0;align-items:flex-start;min-height:auto}
   .hero-content{align-items:center;text-align:center;max-width:100%}
   .hero-badge{align-self:center}
@@ -292,8 +289,7 @@ nav{
   .hero-visual-col{display:none}
 }
 @media(max-width:600px){
-  #hero{min-height:auto}
-  .hero-inner{padding:106px 20px 48px;min-height:auto}
+  .hero-inner{padding:106px 20px 48px}
   .hero-h1{font-size:clamp(38px,11vw,56px)}
   .hero-ctas{flex-direction:column;align-items:stretch;gap:10px}
   .btn-primary,.btn-secondary{justify-content:center}
@@ -538,52 +534,52 @@ footer strong{color:var(--orange)}
 @media(max-width:480px){
   .ticker-bar{height:32px}
   .ticker-key,.ticker-desc{font-size:8px}
-  nav{left:0!important;right:0!important;margin:0 auto!important;transform:none!important;width:fit-content!important;max-width:calc(100vw - 20px)!important;border-radius:12px!important;padding:7px 12px!important;gap:8px!important;top:50px!important}
-  .nav-logo{font-size:14px!important;white-space:nowrap}
-  .nav-cta{font-size:10px!important;padding:7px 10px!important;white-space:nowrap;flex-shrink:0!important}
-  .hero-inner{padding:100px 16px 60px!important}
-  .hero-h1{font-size:clamp(28px,8.5vw,40px)!important;line-height:.97!important}
-  .hero-ctas{flex-direction:column!important;width:100%!important;align-items:stretch!important;gap:10px!important}
-  .btn-primary,.btn-secondary{width:100%!important;justify-content:center!important;font-size:13px!important;padding:13px 20px!important}
-  section{padding:36px 16px!important}
-  #cta-final{padding:48px 16px!important}
-  footer{padding:24px 16px 90px!important;font-size:11px!important}
-  .paraquien-grid,.prob-grid,.mod-grid{grid-template-columns:1fr!important}
-  .alejandro-grid{grid-template-columns:1fr!important}
-  .prob-card{padding:20px 14px!important}
-  .cta-title{font-size:clamp(26px,7vw,40px)!important}
-  .roi-inner{grid-template-columns:1fr!important;gap:24px!important}
-  .roi-result{padding:18px 14px!important}
-  #mitumti-fab{bottom:20px!important;left:14px!important}
-  .float-chat-btn{bottom:20px!important;right:14px!important;width:48px!important;height:48px!important}
-  .float-chat-panel{width:calc(100vw - 28px)!important;right:14px!important;bottom:78px!important;height:380px!important}
-  .señal-box{padding:24px 18px!important}
-  .prob-bridge{padding:32px 18px!important}
-  .bridge-sub{font-size:13px!important}
-  .alejandro-quote{font-size:13px!important;padding-left:12px!important}
-  .alejandro-stats{grid-template-columns:1fr 1fr!important;gap:8px!important}
-  .stat-num{font-size:1.4rem!important}
-  .mod-card{padding:22px 18px!important}
-  .paraquien-card{padding:22px 18px!important}
-  .roi-slider-label{font-size:12px!important}
-  .rm-val.highlight-lg{font-size:22px!important}
+  nav{max-width:calc(100vw - 20px);border-radius:12px;padding:7px 12px;gap:8px;top:50px}
+  .nav-logo{font-size:14px;white-space:nowrap}
+  .nav-cta{font-size:10px;padding:7px 10px;white-space:nowrap}
+  .hero-inner{padding:100px 16px 60px}
+  .hero-h1{font-size:clamp(28px,8.5vw,40px);line-height:.97}
+  .hero-ctas{flex-direction:column;width:100%;align-items:stretch;gap:10px}
+  .btn-primary,.btn-secondary{width:100%;justify-content:center;font-size:13px;padding:13px 20px}
+  section{padding:36px 16px}
+  #cta-final{padding:48px 16px}
+  footer{padding:24px 16px 90px;font-size:11px}
+  .paraquien-grid,.prob-grid,.mod-grid{grid-template-columns:1fr}
+  .alejandro-grid{grid-template-columns:1fr}
+  .prob-card{padding:20px 14px}
+  .cta-title{font-size:clamp(26px,7vw,40px)}
+  .roi-inner{grid-template-columns:1fr;gap:24px}
+  .roi-result{padding:18px 14px}
+  #mitumti-fab{bottom:20px;left:14px}
+  .float-chat-btn{bottom:20px;right:14px;width:48px;height:48px}
+  .float-chat-panel{width:calc(100vw - 28px);right:14px;bottom:78px;height:380px}
+  .señal-box{padding:24px 18px}
+  .prob-bridge{padding:32px 18px}
+  .bridge-sub{font-size:13px}
+  .alejandro-quote{font-size:13px;padding-left:12px}
+  .alejandro-stats{grid-template-columns:1fr 1fr;gap:8px}
+  .stat-num{font-size:1.4rem}
+  .mod-card{padding:22px 18px}
+  .paraquien-card{padding:22px 18px}
+  .roi-slider-label{font-size:12px}
+  .rm-val.highlight-lg{font-size:22px}
 }
 @media(max-width:360px){
-  nav{padding:6px 10px!important;gap:6px!important;top:48px!important}
-  .nav-logo{max-width:90px!important;font-size:13px!important}
-  .nav-cta{font-size:9px!important;padding:6px 9px!important}
-  .hero-inner{padding:92px 12px 52px!important}
-  .hero-h1{font-size:26px!important}
-  section{padding:28px 12px!important}
-  .señal-box{padding:20px 14px!important}
-  .prob-bridge{padding:26px 14px!important}
-  .bridge-title{font-size:22px!important}
-  .cta-steps{gap:6px!important}
-  .alejandro-stats{gap:6px!important}
-  .footer-pill{padding:8px 16px!important;font-size:11px!important}
+  nav{padding:6px 10px;gap:6px;top:48px}
+  .nav-logo{max-width:90px;font-size:13px}
+  .nav-cta{font-size:9px;padding:6px 9px}
+  .hero-inner{padding:92px 12px 52px}
+  .hero-h1{font-size:26px}
+  section{padding:28px 12px}
+  .señal-box{padding:20px 14px}
+  .prob-bridge{padding:26px 14px}
+  .bridge-title{font-size:22px}
+  .cta-steps{gap:6px}
+  .alejandro-stats{gap:6px}
+  .footer-pill{padding:8px 16px;font-size:11px}
 }
 @media(max-width:768px){
-  .hero-glow,.hero-glow::before,.hero-glow::after,.hero-orb3,.dash-main,.dash-metric,.dash-testimony{will-change:auto}
+  .hero-glow,.hero-glow::before,.hero-glow::after,.hero-orb3{will-change:auto}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -825,6 +821,7 @@ footer strong{color:var(--orange)}
 .dt-dot-ad.dt-dot-active{background:var(--orange)!important}
 /* ── fin anuncio ──────────────────────────────────── */
 </style>
+</head>
 <body>
 
 <!-- TICKER -->
