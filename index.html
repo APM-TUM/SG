@@ -56,7 +56,6 @@ img{max-width:100%;height:auto}
   animation:ticker 32s linear infinite;
   will-change:transform;
 }
-.ticker-track:hover{ animation-play-state:paused; }
 @keyframes ticker{
   0%{transform:translateX(0)}
   100%{transform:translateX(-50%)}
@@ -172,7 +171,7 @@ nav{
   top:12%;right:8%;border-radius:50%;filter:blur(36px);animation:orbFloat3 13s ease-in-out infinite;
 }
 
-/* HERO DASHBOARD — reutilizamos el visual del index pero con datos de A TUM SG */
+/* HERO DASHBOARD */
 .hero-dashboard{position:relative;width:100%;max-width:380px;display:flex;flex-direction:column;gap:10px;animation:fadeUp .9s .4s both}
 @keyframes dashFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .dash-main{
@@ -232,7 +231,6 @@ nav{
 .dt-fade{animation:dtFadeIn .45s ease both}
 @keyframes dmFadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 .dm-fade{animation:dmFadeIn .4s ease both}
-.hero-line{display:none}
 
 /* LAYOUT SPLIT */
 .hero-inner{
@@ -533,9 +531,7 @@ footer strong{color:var(--orange)}
 @media(min-width:481px) and (max-width:768px){
   .hero-inner{padding:120px 24px 80px}
   .hero-ctas{justify-content:center}
-  .paraquien-grid,.prob-grid,.mod-grid{grid-template-columns:1fr}
   .roi-inner{grid-template-columns:1fr;gap:28px}
-  .momentos-grid .momento-card{grid-template-columns:1fr}
   #mitumti-fab{bottom:20px}
   .float-chat-btn{bottom:20px}
 }
@@ -630,7 +626,7 @@ footer strong{color:var(--orange)}
 .chat-wa-btn:hover{transform:scale(1.02);box-shadow:0 6px 20px rgba(200,92,42,.5)}
 
 /* FAB */
-#mitumti-fab{position:fixed;bottom:20px;left:20px;z-index:9000;display:flex;flex-direction:column;align-items:flex-start;gap:8px;position:fixed}
+#mitumti-fab{position:fixed;bottom:20px;left:20px;z-index:9000;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
 .fab-panel{
   position:absolute;bottom:54px;left:0;
   background:rgba(16,14,12,.97);border:1px solid var(--orange-border);border-radius:16px;
@@ -786,15 +782,6 @@ footer strong{color:var(--orange)}
 .dash-ad-copy-h em{color:var(--orange);font-style:normal}
 .dash-ad-copy-p{font-size:10px;color:rgba(255,255,255,.45);line-height:1.55;margin-top:5px}
 
-/* benefits en píldoras */
-.dash-ad-pills{display:flex;gap:6px;flex-wrap:wrap}
-.dash-ad-pill{
-  display:inline-flex;align-items:center;gap:4px;
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);
-  border-radius:100px;padding:4px 9px;
-  font-size:9px;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:.04em;
-}
-.dash-ad-pill-icon{font-size:9px;opacity:.8}
 
 /* urgencia */
 .dash-ad-urgency{
@@ -860,23 +847,7 @@ footer strong{color:var(--orange)}
     <span class="ticker-dot"></span>
     <div class="ticker-item"><span class="ticker-key">Sin tecnicismos</span>&nbsp;<span class="ticker-desc">Fácil de usar desde el celular</span></div>
     <span class="ticker-dot"></span>
-    <!-- set 2 — copia exacta para loop infinito -->
-    <div class="ticker-item"><span class="ticker-key">100% a medida</span>&nbsp;<span class="ticker-desc">Tu sistema, no uno genérico</span></div>
-    <span class="ticker-dot"></span>
-    <div class="ticker-item"><span class="ticker-key">1 día</span>&nbsp;<span class="ticker-desc">Y ya estás usando tu sistema</span></div>
-    <span class="ticker-dot"></span>
-    <div class="ticker-item"><span class="ticker-key">Diagnóstico gratis</span>&nbsp;<span class="ticker-desc">Primero entendemos tu negocio</span></div>
-    <span class="ticker-dot"></span>
-    <div class="ticker-item"><span class="ticker-key">10+ años</span>&nbsp;<span class="ticker-desc">Analizando negocios reales</span></div>
-    <span class="ticker-dot"></span>
-    <div class="ticker-item"><span class="ticker-key">Acompañamiento</span>&nbsp;<span class="ticker-desc">Nunca quedás solo</span></div>
-    <span class="ticker-dot"></span>
-    <div class="ticker-item"><span class="ticker-key">6 módulos</span>&nbsp;<span class="ticker-desc">Agenda · Clientes · Cobros · y más</span></div>
-    <span class="ticker-dot"></span>
-    <div class="ticker-item"><span class="ticker-key">Santa Cruz, Bolivia</span>&nbsp;<span class="ticker-desc">Hecho a medida para vos</span></div>
-    <span class="ticker-dot"></span>
-    <div class="ticker-item"><span class="ticker-key">Sin tecnicismos</span>&nbsp;<span class="ticker-desc">Fácil de usar desde el celular</span></div>
-    <span class="ticker-dot"></span>
+    <!-- JS clona los ítems dinámicamente -->
   </div>
 </div>
 
@@ -900,7 +871,6 @@ footer strong{color:var(--orange)}
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-orb3"></div>
-  <div class="hero-line"></div>
   <div class="hero-inner">
 
     <!-- COLUMNA IZQUIERDA -->
@@ -1660,12 +1630,11 @@ window.restartChat = function(){
       idx = (idx + 1) % TOTAL;
       if(idx === AD_SLOT){
         showAd();
-        updateDots();
       } else {
         if(prevIsAd) hideAd();
         applyTestimonio(testimonios[idx], !prevIsAd);
-        updateDots();
       }
+      updateDots();
       scheduleNext();
     }, delay);
   }
