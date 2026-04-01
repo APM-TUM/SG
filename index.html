@@ -674,7 +674,7 @@ footer strong{color:var(--orange)}
 }
 .fab-logo-tum{
   font-family:var(--font-heading);font-size:14px;font-weight:800;
-  color:#fff;
+  color:var(--orange);
   letter-spacing:-.02em;
   opacity:0;
   max-width:0;
@@ -1640,41 +1640,49 @@ window.restartChat = function(){
 </script>
 
 <script>
-// TICKER — fix robusto: clona ítems hasta llenar 2x el ancho de pantalla y anima con JS
+// TICKER — animación suave desde el primer frame
 (function(){
   var track = document.querySelector('.ticker-track');
   if(!track) return;
 
-  // Esperar a que el DOM esté pintado para medir el ancho real
-  window.addEventListener('load', function(){
+  function initTicker(){
     var items = Array.from(track.children);
-    var totalW = track.scrollWidth;
     var screenW = window.innerWidth;
 
-    // Si el contenido no llena al menos 2× la pantalla, clonar hasta que lo haga
+    // Clonar hasta llenar al menos 2.5× la pantalla
     while(track.scrollWidth < screenW * 2.5){
       items.forEach(function(el){ track.appendChild(el.cloneNode(true)); });
     }
 
-    var fullW = track.scrollWidth / 2; // mitad porque tenemos 2 copias
-    var duration = Math.max(fullW / 60, 20); // ~60px/s, mínimo 20s
-
+    var fullW = track.scrollWidth / 2;
+    var speed = 55; // px/s
     track.style.animation = 'none';
-    var start = null;
     var paused = false;
     var offset = 0;
+    var lastTs = null;
 
     track.parentElement.addEventListener('mouseenter', function(){ paused = true; });
     track.parentElement.addEventListener('mouseleave', function(){ paused = false; });
 
     function animate(ts){
-      if(!start) start = ts;
-      if(!paused) offset = ((ts - start) / 1000 * (fullW / duration)) % fullW;
+      if(lastTs !== null && !paused){
+        var delta = ts - lastTs;
+        offset = (offset + delta * speed / 1000) % fullW;
+      }
+      lastTs = ts;
       track.style.transform = 'translateX(-' + offset + 'px)';
       requestAnimationFrame(animate);
     }
     requestAnimationFrame(animate);
-  });
+  }
+
+  // Arrancar en DOMContentLoaded si el DOM aún no está listo, o inmediatamente si ya lo está
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initTicker);
+  } else {
+    // DOM ya disponible: esperar un frame para que el layout esté pintado
+    requestAnimationFrame(function(){ requestAnimationFrame(initTicker); });
+  }
 })();
 </script>
 </body>
