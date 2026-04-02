@@ -890,12 +890,12 @@ footer strong{color:var(--orange)}
   padding-left:5px;
 }
 /* ── ANUNCIO A TUM Ti — Rediseño con gancho ─────────── */
-@keyframes adIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-@keyframes adCountdown{from{width:100%}to{width:0%}}
-@keyframes adGlowLine{0%,100%{opacity:.4}50%{opacity:1}}
+to{opacity:1;transform:translateY(0)}}
+to{width:0%}}
+50%{opacity:1}}
 @keyframes adPulseBtn{0%,100%{box-shadow:0 4px 20px rgba(200,92,42,.45)}55%{box-shadow:0 4px 36px rgba(200,92,42,.8),0 0 0 5px rgba(200,92,42,.12)}}
 @keyframes adShimmer{0%{transform:translateX(-100%) skewX(-18deg)}100%{transform:translateX(280%) skewX(-18deg)}}
-@keyframes adBlink{0%,100%{opacity:1}50%{opacity:.3}}
+50%{opacity:.3}}
 
 #dash-normal-block{display:flex;flex-direction:column;gap:10px;width:100%}
 .dash-ad-card{
@@ -1096,7 +1096,6 @@ footer strong{color:var(--orange)}
       <h1 class="hero-h1">Tu negocio<span class="accent">en tu</span><span class="line2">celular</span></h1>
       <div class="hero-h1-underline"></div>
       <p class="hero-tagline">Hecho a medida — <span class="hoy">para vos</span></p>
-
 
       <div class="hero-ctas">
         <a href="https://wa.me/59170000000?text=Hola%20Alejandro%2C%20quiero%20mi%20diagn%C3%B3stico%20gratuito%20de%20A%20TUM%20SG" class="btn-primary" target="_blank" rel="noopener">
@@ -1827,36 +1826,6 @@ window.restartChat = function(){
 
   var TOTAL = testimonios.length;
   var idx = 0;
-
-  var adCard        = document.getElementById('dash-ad-card');
-  var normalBlock   = document.getElementById('dash-normal-block');
-  var testimonyWrap = document.getElementById('dash-testimony-wrap');
-
-  function showAd(){
-    if(!normalBlock || !adCard) return;
-    normalBlock.style.transition = 'opacity .3s';
-    normalBlock.style.opacity = '0';
-    setTimeout(function(){
-      normalBlock.style.display = 'none';
-      adCard.classList.add('active');
-      adCard.style.opacity = '0';
-      adCard.style.transition = 'opacity .4s';
-
-      setTimeout(function(){ adCard.style.opacity = '1'; }, 20);
-    }, 300);
-  }
-
-  function hideAd(){
-    if(!normalBlock || !adCard) return;
-    adCard.style.transition = 'opacity .25s';
-    adCard.style.opacity = '0';
-    setTimeout(function(){
-      adCard.classList.remove('active');
-      normalBlock.style.display = 'flex';
-      normalBlock.style.opacity = '0';
-      setTimeout(function(){ normalBlock.style.opacity = '1'; }, 20);
-    }, 250);
-  }
 
   function applyTestimonio(t, animate){
     var avatar = document.getElementById('dt-avatar');
