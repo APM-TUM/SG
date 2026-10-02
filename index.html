@@ -99,6 +99,22 @@ nav{
 .nav-links{display:flex;gap:22px;list-style:none}
 .nav-links a{font-family:var(--font-body);font-size:13px;font-weight:600;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:#fff}
+.nav-links a.nav-new{
+  color:#FAF7F4;display:inline-flex;align-items:center;gap:7px;
+  padding:6px 8px 6px 12px;border-radius:100px;
+  background:linear-gradient(135deg,rgba(200,92,42,.22),rgba(200,92,42,.08));
+  border:1px solid var(--orange-border);
+  transition:background .2s,border-color .2s,transform .2s;
+}
+.nav-links a.nav-new:hover{color:#fff;border-color:var(--orange);background:rgba(200,92,42,.3);transform:translateY(-1px)}
+.nav-new-ico{color:var(--orange-light);flex-shrink:0;display:block}
+.nav-new-chip{
+  display:inline-flex;align-items:center;gap:4px;
+  background:var(--orange);color:#fff;
+  font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;line-height:1;
+  padding:4px 7px;border-radius:100px;
+}
+.nav-new-dot{width:4px;height:4px;border-radius:50%;background:#fff;animation:blink 1.8s infinite;flex-shrink:0}
 .nav-cta{
   background:var(--orange);color:#fff;
   font-family:var(--font-heading);font-size:12px;font-weight:700;
@@ -754,7 +770,7 @@ footer strong{color:var(--orange)}
   .roi-result{padding:18px 14px}
   #mitumti-fab{bottom:20px;left:14px}
   .float-chat-btn{bottom:20px;right:14px;width:48px;height:48px}
-  .float-chat-panel{width:calc(100vw - 28px);right:14px;bottom:78px;height:380px}
+  .float-chat-panel{width:calc(100vw - 28px);right:14px;bottom:78px;height:480px;max-height:calc(100vh - 100px)}
   .señal-box{padding:24px 18px}
   .prob-bridge{padding:32px 18px}
   .bridge-sub{font-size:13px}
@@ -794,7 +810,7 @@ footer strong{color:var(--orange)}
 .float-chat-btn.open .fch-icon{display:none}
 .float-chat-btn.open .fch-close{display:flex}
 .float-chat-notif{position:absolute;top:-4px;right:-4px;width:18px;height:18px;border-radius:50%;background:#ef4444;border:2px solid var(--dark);font-size:10px;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center;animation:blink 2s infinite}
-.float-chat-panel{position:fixed;bottom:88px;right:20px;z-index:8999;width:320px;background:rgba(16,14,12,.97);border:1px solid var(--orange-border);border-radius:20px;overflow:hidden;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 24px 60px rgba(0,0,0,.7),0 0 0 1px rgba(200,92,42,.1);display:flex;flex-direction:column;height:420px;transform:scale(.92) translateY(16px);opacity:0;pointer-events:none;transition:transform .25s cubic-bezier(.34,1.56,.64,1), opacity .2s;transform-origin:bottom right}
+.float-chat-panel{position:fixed;bottom:88px;right:20px;z-index:8999;width:320px;background:rgba(16,14,12,.97);border:1px solid var(--orange-border);border-radius:20px;overflow:hidden;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 24px 60px rgba(0,0,0,.7),0 0 0 1px rgba(200,92,42,.1);display:flex;flex-direction:column;height:500px;max-height:calc(100vh - 110px);transform:scale(.92) translateY(16px);opacity:0;pointer-events:none;transition:transform .25s cubic-bezier(.34,1.56,.64,1), opacity .2s;transform-origin:bottom right}
 .float-chat-panel.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
 .fch-header{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(200,92,42,.08);flex-shrink:0}
 .fch-avatar{width:32px;height:32px;border-radius:50%;flex-shrink:0;background:var(--orange);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(200,92,42,.25)}
@@ -811,15 +827,19 @@ footer strong{color:var(--orange)}
 .chat-msg.user{justify-content:flex-end}
 .chat-bubble{max-width:86%;padding:8px 11px;border-radius:14px;font-size:11.5px;line-height:1.5}
 .chat-msg.bot .chat-bubble{background:rgba(255,255,255,.07);color:rgba(255,255,255,.82);border-radius:3px 14px 14px 14px}
+.chat-msg.bot .chat-bubble a{color:var(--orange-light);font-weight:700;text-decoration:underline;text-underline-offset:2px;display:inline-block;margin-top:4px}
 .chat-msg.user .chat-bubble{background:var(--orange);color:#fff;font-weight:600;border-radius:14px 14px 3px 14px;font-size:11px}
 .chat-typing{display:flex;gap:3px;align-items:center;padding:9px 12px;background:rgba(255,255,255,.07);border-radius:3px 14px 14px 14px;width:fit-content}
 .chat-typing span{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.35);animation:blink 1.2s infinite}
 .chat-typing span:nth-child(2){animation-delay:.2s}
 .chat-typing span:nth-child(3){animation-delay:.4s}
-.fch-options{padding:8px 10px 12px;border-top:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column;gap:4px;flex-shrink:0}
+.fch-options{max-height:62%;overflow-y:auto;padding:8px 10px 12px;border-top:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column;gap:4px;flex-shrink:0}
 .chat-opt-btn{width:100%;text-align:left;padding:10px 11px;min-height:40px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;color:rgba(255,255,255,.65);font-size:11px;font-weight:600;cursor:pointer;transition:all .15s;font-family:var(--font-body);display:flex;align-items:center;gap:7px}
 .chat-opt-btn:hover{background:rgba(200,92,42,.14);border-color:rgba(200,92,42,.45);color:#fff}
 .chat-opt-btn .opt-icon{flex-shrink:0;font-size:12px}
+.chat-opt-new{border-color:rgba(200,92,42,.4);background:rgba(200,92,42,.08);color:rgba(255,255,255,.85)}
+.opt-new{margin-left:auto;background:var(--orange);color:#FAF7F4;font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;border-radius:100px}
+.chat-opt-back{min-height:32px;padding:7px 11px;background:transparent;color:rgba(255,255,255,.45)}
 .chat-wa-btn{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;padding:10px 14px;margin-top:3px;background:var(--orange);color:#fff;font-family:var(--font-heading);font-size:12px;font-weight:700;border-radius:10px;text-decoration:none;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
 .chat-wa-btn:hover{transform:scale(1.02);box-shadow:0 6px 20px rgba(200,92,42,.5)}
 
@@ -844,6 +864,8 @@ footer strong{color:var(--orange)}
 .fab-item{display:flex;align-items:center;gap:10px;padding:9px 12px;text-decoration:none;transition:background .15s,transform .15s}
 .fab-item:last-child{border-bottom:none}
 .fab-item:hover{background:rgba(200,92,42,.09);transform:translateX(3px)}
+.fab-item-new{background:rgba(200,92,42,.08)}
+.fab-new{flex-shrink:0;margin-left:auto;background:var(--orange);color:#FAF7F4;font-family:var(--font-body);font-size:8px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:2px 6px;border-radius:100px}
 .fab-icon{width:32px;height:32px;border-radius:9px;background:rgba(200,92,42,.1);border:1px solid rgba(200,92,42,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .fab-text{flex:1}
 .fab-label{font-size:12px;font-weight:700;color:rgba(255,255,255,.88);font-family:var(--font-heading);line-height:1.2}
@@ -1041,6 +1063,99 @@ to{width:0%}}
   .perfil-tab{font-size:11px;padding:9px 14px}
   .perfil-card-main{padding:24px 18px}
 }
+
+/* ── NOVEDADES A TUM (AvisoPagos) ── */
+@keyframes novGlow{0%,100%{box-shadow:0 0 0 0 rgba(200,92,42,.30),0 0 26px 0 rgba(200,92,42,.10)}50%{box-shadow:0 0 0 7px rgba(200,92,42,0),0 0 42px 4px rgba(200,92,42,.20)}}
+@keyframes novWave{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
+@keyframes novIn{0%,18%{opacity:0;transform:translateY(10px)}30%,100%{opacity:1;transform:translateY(0)}}
+#lineas{background:var(--dark2);position:relative;overflow:hidden}
+#lineas::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 45% at 50% 0%,rgba(200,92,42,.07) 0%,transparent 65%);pointer-events:none}
+#lineas .container{position:relative}
+#lineas .sec-h2 strong{color:var(--orange)}
+#lineas .sec-label.nov-label{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:8px 10px 8px 14px;border-radius:100px;
+  color:#FAF7F4;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  background:linear-gradient(135deg,rgba(200,92,42,.22),rgba(200,92,42,.08));
+  border:1px solid var(--orange-border);
+}
+#lineas .nov-label .nav-new-chip{font-size:10px;padding:5px 9px}
+
+.nov-sub{font-size:16px;color:rgba(204,204,204,.8);max-width:520px;line-height:1.7;margin-top:14px}
+.nov-card{margin-top:36px;border:1.5px solid rgba(200,92,42,.5);border-radius:22px;padding:34px;background:linear-gradient(135deg,rgba(200,92,42,.09) 0%,rgba(255,255,255,.02) 55%);box-shadow:0 18px 50px rgba(0,0,0,.35);display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+.nov-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:16px}
+.nov-badge{background:var(--orange);color:#FAF7F4;font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:4px 11px;border-radius:100px}
+.nov-type{font-size:12px;font-weight:600;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em}
+.nov-name{display:flex;align-items:center;gap:12px;font-family:var(--font-heading);font-size:clamp(28px,4vw,40px);font-weight:800;color:var(--color-h1);letter-spacing:-.04em;line-height:1;margin-bottom:14px}
+.nov-app-ico{width:46px;height:46px;border-radius:13px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--orange-light),var(--orange));box-shadow:0 6px 18px rgba(200,92,42,.4)}
+.nov-name em{color:var(--orange);font-style:normal}
+.nov-h3{font-family:var(--font-heading);font-size:clamp(20px,2.6vw,26px);font-weight:800;line-height:1.08;letter-spacing:-.03em;color:var(--color-h1);margin-bottom:10px}
+.nov-h3 strong{color:var(--orange)}
+.nov-lead{font-size:16.5px;line-height:1.6;color:rgba(255,255,255,.85);margin-bottom:16px}
+.nov-banks{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.nov-bank{--bk:#555;--bk-fg:#fff;font-size:11px;font-weight:700;color:var(--bk-fg);background:var(--bk);border:1px solid rgba(255,255,255,.18);padding:5px 13px;border-radius:100px;letter-spacing:.01em}
+/* colores de marca: cambia el hex aquí si algún banco usa otro tono */
+.b-yape{--bk:#742384}
+.b-altoke{--bk:#F26A21}
+.b-bnb{--bk:#0B4EA2}
+.b-yolo{--bk:#FFD400;--bk-fg:#1a1a1a}
+.b-ganadero{--bk:#00873E}
+.nov-vs{display:grid;gap:8px;margin-bottom:20px}
+.nov-vs-row{display:flex;align-items:flex-start;gap:10px;border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.45}
+.nov-vs-row svg{flex-shrink:0;margin-top:2px}
+.nov-vs-no{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.68)}
+.nov-vs-no small,.nov-vs-yes small{display:block;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2px}
+.nov-vs-yes{background:rgba(200,92,42,.1);border:1px solid rgba(200,92,42,.35);color:var(--color-h1);font-weight:600}
+.nov-vs-yes small{color:var(--orange-light)}
+.nov-list{list-style:none;display:grid;gap:10px;margin-bottom:22px}
+.nov-list li{display:flex;gap:10px;font-size:15px;line-height:1.55;color:rgba(255,255,255,.78)}
+.nov-list li svg{flex-shrink:0;margin-top:3px}
+.nov-list b{color:#fff;font-weight:700}
+.nov-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.nov-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--orange);color:#FAF7F4;font-family:var(--font-heading);font-size:15px;font-weight:700;padding:15px 26px;border-radius:12px;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s}
+.nov-btn:hover{transform:translateY(-2px) scale(1.02);background:var(--orange-light);box-shadow:0 8px 26px rgba(200,92,42,.4)}
+.nov-btn-ghost{background:transparent;color:var(--orange-light);border:1px solid rgba(200,92,42,.4)}
+.nov-link{font-size:14.5px;font-weight:600;color:var(--orange-light);text-decoration:none;padding:8px 4px;border-bottom:1px solid rgba(217,114,63,.35);transition:color .2s,border-color .2s}
+.nov-link:hover{color:#fff;border-color:#fff}
+.nov-more{margin-top:18px;border-top:1px solid rgba(255,255,255,.1);padding-top:6px}
+.nov-more summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 2px;font-family:var(--font-heading);font-size:14.5px;font-weight:700;color:var(--color-h1);-webkit-tap-highlight-color:transparent}
+.nov-more summary::-webkit-details-marker{display:none}
+.nov-more-ic{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--orange-soft);border:1px solid var(--orange-border);color:var(--orange-light);font-size:16px;line-height:1;transition:transform .25s}
+.nov-more[open] .nov-more-ic{transform:rotate(45deg)}
+.nov-more-body{padding:6px 0 4px}
+.nov-btn-ghost:hover{background:rgba(200,92,42,.1);box-shadow:none}
+.nov-trial{font-size:14px;color:rgba(255,255,255,.68);margin-top:14px;line-height:1.6}
+.nov-trial b{color:#fff}
+/* teléfono */
+.nov-stage{display:flex;flex-direction:column;align-items:center;gap:14px}
+.nov-phone{width:236px;border-radius:36px;padding:11px;background:#0d0b09;border:1px solid rgba(255,255,255,.14);box-shadow:0 24px 60px rgba(0,0,0,.55),0 0 0 1px rgba(200,92,42,.18)}
+.nov-screen{border-radius:27px;padding:22px 14px 18px;background:radial-gradient(ellipse at 50% 0%,rgba(200,92,42,.18),#14110e 70%);min-height:330px;display:flex;flex-direction:column;gap:9px}
+.nov-time{font-family:var(--font-heading);font-size:34px;font-weight:700;color:var(--color-h1);text-align:center;letter-spacing:-.03em;margin-bottom:8px}
+.nov-notif{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:9px 12px;animation:novIn 6s ease-in-out infinite}
+.nov-notif.n2{animation-delay:1.6s}
+.nov-notif small{display:block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:2px}
+.nov-notif b{font-size:13.5px;color:var(--color-h1);font-weight:700}
+.nov-say{margin-top:auto;font-size:12px;font-style:italic;text-align:center;color:var(--orange-light);line-height:1.4;padding-top:10px}
+.nov-wave{display:flex;align-items:center;justify-content:center;gap:4px;height:34px}
+.nov-wave i{display:block;width:4px;height:100%;border-radius:3px;background:var(--orange);transform-origin:center;animation:novWave 1.1s ease-in-out infinite}
+.nov-wave i:nth-child(2n){animation-delay:.15s}.nov-wave i:nth-child(3n){animation-delay:.3s}.nov-wave i:nth-child(4n){animation-delay:.45s}.nov-wave i:nth-child(5n){animation-delay:.6s}
+.nov-bubble{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;color:var(--color-h1);background:rgba(200,92,42,.14);border:1px solid rgba(200,92,42,.4);padding:7px 14px;border-radius:100px}
+/* próxima novedad */
+.nov-next{margin-top:18px;border:1.5px solid rgba(200,92,42,.4);border-radius:20px;padding:24px 28px;background:linear-gradient(135deg,rgba(200,92,42,.14),rgba(200,92,42,.03));display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.nov-plus{width:52px;height:52px;border-radius:50%;flex-shrink:0;background:var(--orange);border:1px solid var(--orange-light);box-shadow:0 6px 20px rgba(200,92,42,.35);display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;font-weight:300}
+.nov-next-txt{flex:1;min-width:200px}
+.nov-next-txt h4{font-family:var(--font-heading);font-size:18px;font-weight:700;color:var(--color-h1);letter-spacing:-.02em;margin-bottom:2px}
+.nov-next-txt p{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.72)}
+@media(max-width:860px){
+  .nov-card{grid-template-columns:1fr;padding:24px 18px;gap:28px}
+  .nov-stage{order:-1}
+  .nov-phone{width:210px}
+  .nov-screen{min-height:280px}
+  .nov-btn{width:100%}
+  .nov-actions{flex-direction:column;align-items:stretch;text-align:center}
+  .nov-next{padding:20px 18px}
+}
+@media(prefers-reduced-motion:reduce){.nov-notif,.nov-wave i{animation:none}}
 </style>
 </head>
 <body>
@@ -1075,6 +1190,7 @@ to{width:0%}}
     <li><a href="#problema">¿Es para vos?</a></li>
     <li><a href="#como-funciona">Cómo funciona</a></li>
     <li><a href="#modulos">Módulos</a></li>
+    <li><a href="#lineas" class="nav-new"><svg class="nav-new-ico" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9z"/><path d="M19 15l.9 2.6 2.6.9-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9z" opacity=".7"/></svg>Novedades<span class="nav-new-chip"><span class="nav-new-dot"></span>Nuevo</span></a></li>
   </ul>
   <a href="https://wa.me/59164542598?text=Hola%20Alejandro%2C%20quiero%20mi%20diagn%C3%B3stico%20gratuito%20de%20A%20TUM%20SG" class="nav-cta" target="_blank" rel="noopener">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -1383,6 +1499,78 @@ to{width:0%}}
   </div>
 </section>
 
+<!-- NOVEDADES A TUM — AvisoPagos -->
+<section id="lineas">
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label nov-label"><svg class="nav-new-ico" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9z"/><path d="M19 15l.9 2.6 2.6.9-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9z" opacity=".7"/></svg>Lo último de A TUM<span class="nav-new-chip"><span class="nav-new-dot"></span>Nuevo</span></div>
+      <h2 class="sec-h2">Novedades <strong>en A TUM.</strong></h2>
+      <p class="nov-sub">Aquí vas a encontrar lo nuevo que lanzamos, apenas sale.</p>
+    </div>
+
+    <div class="nov-card reveal">
+      <div class="nov-copy">
+        <div class="nov-top"><span class="nov-badge">Nuevo</span><span class="nov-type">App para Android</span></div>
+        <div class="nov-name"><span class="nov-app-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></span><span>Aviso<em>Pagos</em></span></div>
+        <h3 class="nov-h3">Escucha cada pago<br><strong>que recibes.</strong></h3>
+        <p class="nov-lead">Tu celular lo dice en voz alta. Tú sigues vendiendo.</p>
+
+        <div class="nov-banks">
+          <span class="nov-bank b-yape">Yape</span><span class="nov-bank b-altoke">Altoke</span><span class="nov-bank b-bnb">BNB</span><span class="nov-bank b-yolo">Yolo Pago</span><span class="nov-bank b-ganadero">Ganadero</span>
+        </div>
+
+
+        <div class="nov-actions">
+          <a class="nov-btn" href="https://wa.me/59164542598?text=Hola%2C%20quiero%20la%20prueba%20de%207%20d%C3%ADas%20de%20AvisoPagos" target="_blank" rel="noopener">Probar 7 días gratis</a>
+          <a class="nov-link" href="https://apm-tum.github.io/SG/AvisoPagos/" target="_blank" rel="noopener">Ver AvisoPagos →</a>
+        </div>
+        <p class="nov-trial"><b>Primero la ves funcionar en vivo, en 2 minutos.</b> Te la instalamos para que la pruebes tranquilamente y después decides sin compromiso.</p>
+        <details class="nov-more">
+          <summary>Ver cómo funciona<span class="nov-more-ic">+</span></summary>
+          <div class="nov-more-body">
+        <div class="nov-vs">
+          <div class="nov-vs-row nov-vs-no">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2.6" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <div><small>Hoy</small>“Un momento, déjame ver si llegó…” — y dejas al cliente a medias.</div>
+          </div>
+          <div class="nov-vs-row nov-vs-yes">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C85C2A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><small>Con AvisoPagos</small>“Yape recibido, 10 bolivianos.” Al instante y sigues vendiendo.</div>
+          </div>
+        </div>
+
+        <ul class="nov-list">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C85C2A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Solo avisa lo que te pagan.</b> Lo que tú envías no suena.</span></li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C85C2A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Tu total del día, listo.</b> A un clic y lo puedes compartir.</span></li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C85C2A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Tus datos nunca salen de tu celular.</b> No gasta megas ni necesita WiFi.</span></li>
+        </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="nov-stage" aria-hidden="true">
+        <div class="nov-phone"><div class="nov-screen">
+          <div class="nov-time">10:24</div>
+          <div class="nov-notif"><small>Yape</small><b>Recibiste Bs 10</b></div>
+          <div class="nov-notif n2"><small>Altoke</small><b>Recibiste Bs 45</b></div>
+          <div class="nov-say">“Yape recibido, 10 bolivianos”</div>
+          <div class="nov-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div></div>
+        <div class="nov-bubble"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D9723F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>Te lo dice en voz alta</div>
+      </div>
+    </div>
+
+    <div class="nov-next reveal">
+      <div class="nov-plus">+</div>
+      <div class="nov-next-txt">
+        <h4>La próxima novedad A TUM</h4>
+        <p>Cada necesidad real de un negocio puede convertirse en una herramienta a su medida.</p>
+      </div>
+      <a class="nov-btn nov-btn-ghost" href="https://wa.me/59164542598?text=Hola%20Alejandro%2C%20tengo%20una%20necesidad%20que%20no%20veo%20en%20lo%20que%20ofrece%20A%20TUM" target="_blank" rel="noopener">Cuéntanos qué necesitas →</a>
+    </div>
+  </div>
+</section>
+
 <!-- ALEJANDRO -->
 <section id="alejandro">
   <div class="container">
@@ -1575,6 +1763,13 @@ to{width:0%}}
   <!-- Panel 1: Navegar -->
   <div class="fab-panel" id="fab-panel-1">
     <div class="fab-panel-title">≡ Navegar</div>
+    <a href="#lineas" class="fab-item fab-item-new" onclick="closeFab()">
+      <div class="fab-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C85C2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+      </div>
+      <div class="fab-text"><div class="fab-label">Novedades</div><div class="fab-sub">Lo último en A TUM</div></div>
+      <span class="fab-new">Nuevo</span>
+    </a>
     <a href="#para-vos" class="fab-item" onclick="closeFab()">
       <div class="fab-icon">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C85C2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -1652,9 +1847,20 @@ to{width:0%}}
     <button class="chat-opt-btn" onclick="chatReply('¿Qué es A TUM SG?')"><span class="opt-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span> ¿Qué es A TUM SG?</button>
     <button class="chat-opt-btn" onclick="chatReply('¿Cómo funciona el diagnóstico?')"><span class="opt-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span> ¿Cómo funciona el diagnóstico?</button>
     <button class="chat-opt-btn" onclick="chatReply('¿Cuánto cuesta?')"><span class="opt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85C2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></span> ¿Cuánto cuesta?</button>
+    <button class="chat-opt-btn chat-opt-new" onclick="chatReply('¿Qué es AvisoPagos?','ap')"><span class="opt-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C85C2A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></span> ¿Qué es AvisoPagos? <span class="opt-new">Nuevo</span></button>
     <a href="https://wa.me/59164542598?text=Hola%20Alejandro%2C%20quiero%20mi%20diagn%C3%B3stico%20gratuito%20de%20A%20TUM%20SG" class="chat-wa-btn" target="_blank" rel="noopener">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Escribir a Alejandro ahora
+    </a>
+  </div>
+  <div class="fch-options" id="fch-options-ap" style="display:none">
+    <button class="chat-opt-btn" onclick="chatReply('¿Qué notificaciones avisa en voz alta?','ap')"><span class="opt-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C85C2A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></span> ¿Qué notificaciones avisa en voz alta?</button>
+    <button class="chat-opt-btn" onclick="chatReply('¿Cómo la pruebo gratis?','ap')"><span class="opt-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C85C2A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></span> ¿Cómo la pruebo gratis?</button>
+    <button class="chat-opt-btn" onclick="chatReply('¿Cómo son los planes?','ap')"><span class="opt-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C85C2A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></span> ¿Cómo son los planes?</button>
+    <button class="chat-opt-btn chat-opt-back" onclick="chatMenu('main')">← Volver al menú</button>
+    <a href="https://wa.me/59164542598?text=Hola%2C%20quiero%20la%20prueba%20de%207%20d%C3%ADas%20de%20AvisoPagos" class="chat-wa-btn" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Probar AvisoPagos gratis
     </a>
   </div>
 </div>
@@ -1733,6 +1939,10 @@ updateROI()
 const chatResponses = {
   '¿Qué es A TUM SG?': 'A TUM SG es un sistema de gestión personalizado para pequeños negocios. No es un software genérico — Alejandro analiza tu negocio, entiende cómo trabajás y construye exactamente lo que necesitás.',
   '¿Cómo funciona el diagnóstico?': 'El diagnóstico es gratis y sin compromiso. Alejandro se sienta con vos (o por video llamada), analiza tu negocio y te dice exactamente qué sistema te conviene. Sin tecnicismos.',
+  '¿Qué es AvisoPagos?': 'AvisoPagos es una app para Android que te dice en voz alta cada pago que recibís. Suena "Yape recibido, 10 bolivianos" y vos seguís atendiendo, sin mirar el celular. Solo avisa lo que te pagan y te deja el total del día a un clic.',
+  '¿Qué notificaciones avisa en voz alta?': 'Los pagos que recibís en Yape, Altoke, BNB, Yolo Pago y Ganadero. Cada vez que te pagan, lo dice en voz alta; lo que vos enviás no suena. Y cada pago queda guardado en tu historial.',
+  '¿Cómo la pruebo gratis?': 'Son 4 pasos, sin compromiso:<br>1. Pedís tu visita por WhatsApp y elegís el horario.<br>2. La ves funcionar en vivo, en 2 minutos. Si te gusta, te la instalamos y la probás 7 días gratis.<br>3. Cuando decidás, nos enviás el ID de tu celular, te damos tu código y lo pegás en la app.<br>4. Escuchás cada pago y seguís vendiendo.<br><a href="https://apm-tum.github.io/SG/AvisoPagos/#como-funciona" target="_blank" rel="noopener">Ver el paso a paso completo →</a>',
+  '¿Cómo son los planes?': 'Después de la prueba elegís una licencia por celular: mensual (30 días), semestral (180 días) o anual (365 días: pagás 11 meses y usás 12). Los precios te los confirma Alejandro por WhatsApp.',
   '¿Cuánto cuesta?': 'El diagnóstico es completamente gratuito. El costo del sistema depende de lo que necesitás — por eso el primer paso siempre es el diagnóstico. Alejandro te lo explica sin sorpresas.',
 };
 
@@ -1746,10 +1956,26 @@ window.toggleChat = function(){
   if(chatOpen){ document.querySelector('.float-chat-notif').style.display = 'none'; }
 };
 
-window.chatReply = function(q){
+function showChatOpts(menu){
+  document.getElementById('fch-options').style.display = menu === 'main' ? 'flex' : 'none';
+  document.getElementById('fch-options-ap').style.display = menu === 'ap' ? 'flex' : 'none';
+}
+window.chatMenu = function(menu){
   const msgs = document.getElementById('fch-messages');
-  const opts = document.getElementById('fch-options');
-  opts.style.display = 'none';
+  if(menu === 'main'){
+    const b = document.createElement('div');
+    b.className = 'chat-msg bot';
+    b.innerHTML = '<div class="chat-bubble">Claro. ¿Qué más querés saber?</div>';
+    msgs.appendChild(b);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+  showChatOpts(menu);
+};
+
+window.chatReply = function(q, menu){
+  const msgs = document.getElementById('fch-messages');
+  menu = menu || 'main';
+  showChatOpts('none');
   const uMsg = document.createElement('div');
   uMsg.className = 'chat-msg user';
   uMsg.innerHTML = `<div class="chat-bubble">${q}</div>`;
@@ -1765,16 +1991,15 @@ window.chatReply = function(q){
     bMsg.className = 'chat-msg bot';
     bMsg.innerHTML = `<div class="chat-bubble">${chatResponses[q] || 'Escribile directamente a Alejandro por WhatsApp para una respuesta más completa.'}</div>`;
     msgs.appendChild(bMsg);
-    opts.style.display = 'flex';
+    showChatOpts(menu);
     msgs.scrollTop = msgs.scrollHeight;
   }, 1100);
 };
 
 window.restartChat = function(){
   const msgs = document.getElementById('fch-messages');
-  const opts = document.getElementById('fch-options');
   msgs.innerHTML = '<div class="chat-msg bot"><div class="chat-bubble">Hola 👋 Soy el asistente de A TUM SG. ¿En qué puedo ayudarte hoy?</div></div>';
-  opts.style.display = 'flex';
+  showChatOpts('main');
 };
 </script>
 
