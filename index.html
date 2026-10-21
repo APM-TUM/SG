@@ -1096,12 +1096,6 @@ to{width:0%}}
 .nov-lead{font-size:16.5px;line-height:1.6;color:rgba(255,255,255,.85);margin-bottom:16px}
 .nov-banks{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
 .nov-bank{--bk:#555;--bk-fg:#fff;font-size:11px;font-weight:700;color:var(--bk-fg);background:var(--bk);border:1px solid rgba(255,255,255,.18);padding:5px 13px;border-radius:100px;letter-spacing:.01em}
-/* colores de marca: cambia el hex aquí si algún banco usa otro tono */
-.b-yape{--bk:#742384}
-.b-altoke{--bk:#F26A21}
-.b-bnb{--bk:#0B4EA2}
-.b-yolo{--bk:#FFD400;--bk-fg:#1a1a1a}
-.b-ganadero{--bk:#00873E}
 .nov-vs{display:grid;gap:8px;margin-bottom:20px}
 .nov-vs-row{display:flex;align-items:flex-start;gap:10px;border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.45}
 .nov-vs-row svg{flex-shrink:0;margin-top:2px}
@@ -1518,7 +1512,7 @@ to{width:0%}}
         <p class="nov-lead">Tu celular lo dice en voz alta. Tú sigues vendiendo.</p>
 
         <div class="nov-banks">
-          <span class="nov-bank b-yape">Yape</span><span class="nov-bank b-altoke">Altoke</span><span class="nov-bank b-bnb">BNB</span><span class="nov-bank b-yolo">Yolo Pago</span><span class="nov-bank b-ganadero">Ganadero</span>
+          <span class="nov-bank">Bancas</span><span class="nov-bank">Billeteras móviles</span>
         </div>
 
 
@@ -1537,7 +1531,7 @@ to{width:0%}}
           </div>
           <div class="nov-vs-row nov-vs-yes">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C85C2A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><small>Con AvisoPagos</small>“Yape recibido, 10 bolivianos.” Al instante y sigues vendiendo.</div>
+            <div><small>Con AvisoPagos</small>“Pago recibido, 10 bolivianos.” Al instante y sigues vendiendo.</div>
           </div>
         </div>
 
@@ -1553,9 +1547,9 @@ to{width:0%}}
       <div class="nov-stage" aria-hidden="true">
         <div class="nov-phone"><div class="nov-screen">
           <div class="nov-time">10:24</div>
-          <div class="nov-notif"><small>Yape</small><b>Recibiste Bs 10</b></div>
-          <div class="nov-notif n2"><small>Altoke</small><b>Recibiste Bs 45</b></div>
-          <div class="nov-say">“Yape recibido, 10 bolivianos”</div>
+          <div class="nov-notif"><small>Billetera móvil</small><b>Recibiste Bs 10</b></div>
+          <div class="nov-notif n2"><small>Banca</small><b>Recibiste Bs 45</b></div>
+          <div class="nov-say">“Pago recibido, 10 bolivianos”</div>
           <div class="nov-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
         </div></div>
         <div class="nov-bubble"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D9723F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>Te lo dice en voz alta</div>
@@ -1941,8 +1935,8 @@ updateROI()
 const chatResponses = {
   '¿Qué es A TUM SG?': 'A TUM SG es un sistema de gestión personalizado para pequeños negocios. No es un software genérico — Alejandro analiza tu negocio, entiende cómo trabajás y construye exactamente lo que necesitás.',
   '¿Cómo funciona el diagnóstico?': 'El diagnóstico es gratis y sin compromiso. Alejandro se sienta con vos (o por video llamada), analiza tu negocio y te dice exactamente qué sistema te conviene. Sin tecnicismos.',
-  '¿Qué es AvisoPagos?': 'AvisoPagos es una app para Android que te dice en voz alta cada pago que recibís. Suena "Yape recibido, 10 bolivianos" y vos seguís atendiendo, sin mirar el celular. Solo avisa lo que te pagan y te deja el total del día a un clic.',
-  '¿Qué notificaciones avisa en voz alta?': 'Los pagos que recibís en Yape, Altoke, BNB, Yolo Pago y Ganadero. Cada vez que te pagan, lo dice en voz alta; lo que vos enviás no suena. Y cada pago queda guardado en tu historial.',
+  '¿Qué es AvisoPagos?': 'AvisoPagos es una app para Android que te dice en voz alta cada pago que recibís. Suena "Pago recibido, 10 bolivianos" y vos seguís atendiendo, sin mirar el celular. Solo avisa lo que te pagan y te deja el total del día a un clic.',
+  '¿Qué notificaciones avisa en voz alta?': 'Los pagos que recibís en bancas y billeteras móviles. Cada vez que te pagan, lo dice en voz alta; lo que vos enviás no suena. Y cada pago queda guardado en tu historial.',
   '¿Cómo la pruebo gratis?': 'Son 4 pasos, sin compromiso:<br>1. Pedís tu visita por WhatsApp y elegís el horario.<br>2. La ves funcionar en vivo, en 2 minutos. Si te gusta, te la instalamos y la probás 7 días gratis.<br>3. Cuando decidás, nos enviás el ID de tu celular, te damos tu código y lo pegás en la app.<br>4. Escuchás cada pago y seguís vendiendo.<br><a href="https://apm-tum.github.io/SG/AvisoPagos/#como-funciona" target="_blank" rel="noopener">Ver el paso a paso completo →</a>',
   '¿Cómo son los planes?': 'Después de la prueba elegís una licencia por celular: mensual (30 días), semestral (180 días) o anual (365 días: pagás 11 meses y usás 12). Los precios te los confirma Alejandro por WhatsApp.',
   '¿Cuánto cuesta?': 'El diagnóstico es completamente gratuito. El costo del sistema depende de lo que necesitás — por eso el primer paso siempre es el diagnóstico. Alejandro te lo explica sin sorpresas.',
